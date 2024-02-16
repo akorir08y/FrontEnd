@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,p{
+	font-size: 14px;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 0px;
+}
+</style>
+</head>
+<body>
+
+<div class="top-container">
+  <h1>Scroll Down</h1>
+  <p>Scroll down to see the sticky effect.</p>
+</div>
+
+<div class="header" id="myHeader">
+  <h2>My Header</h2>
+</div>
+
+<div class="content">
+	<div id="home_church_self">
+				<div class="responseDiv"></div>
+				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
+				<hr>
+				<div class="input-group mb-3">
+						<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-buildings-fill" style="background-color: #f1f1f1;"></i></span>
+						<input type="text" class="login_input" id="churchName" name="churchCode" placeholder="Cfms" readonly>
+				</div>
+				<div class="input-group mb-3">
+						<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-person" style="background-color: #f1f1f1;"></i></span>
+						<input type="text" class="login_input" id="memberName" name="churchCode" placeholder="Andrew Keitany" readonly>
+				</div>
+				
+				<div class="col-12" style="margin-top:10px;">
+						  <label class="label_input" for="flexRadioDefault1">Select Fund Type</label>
+						  <div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="trust_funds" value="trust_funds">
+							  <label class="form-check-label" for="trust_funds">
+								Trust Funds
+							  </label>
+						  </div>
+						  <div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="non_trust_funds" value="non_trust_funds">
+							  <label class="form-check-label" for="non_trust_funds">
+								Non Trust Funds
+							  </label>	
+						  </div>
+						  <div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="both_funds" value="both_funds">
+							  <label class="form-check-label" for="both_funds">
+								Both Funds
+							  </label>
+						  </div>
+						  <div class="form-check">
+							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="special_trust_funds" value="special_trust_funds">
+							  <label class="form-check-label" for="special_trust_funds">
+								Special Trust Funds
+							  </label>	
+						  </div>
+						  <button class="button1" onclick="getCheckedAccounts()">Proceed</button>
+				</div>
+				
+			</div>
+	<div id="trust_funds_div" style="display:none;">
+				<div class="responseDiv"></div>
+				<div id="offerings">
+					<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
+					<hr>
+					<div class="input-group mb-3">
+							<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-buildings-fill" style="background-color: #f1f1f1;font-size:16px;"></i></span>
+							<input type="text" class="login_input" id="" name="churchCode" placeholder="Cfms" readonly>
+					</div>
+					<div class="input-group mb-3">
+							<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-person" style="background-color: #f1f1f1;font-size:16px;"></i></span>
+							<input type="text" class="login_input" id="memberName2" name="churchCode" placeholder="Andrew Keitany" readonly>
+					</div>
+				</div>
+				
+				<div id="test" style="position: sticky;margin-bottom:50px;">
+				</div>
+				
+				
+	</div>
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+
+
+function getCheckedAccounts(){
+	var home_self = document.getElementById("home_church_self");
+	var trust_funds_div = document.getElementById("trust_funds_div");
+	var trust_funds = document.getElementById("trust_funds");
+	var non_trust_funds = document.getElementById("non_trust_funds");
+	var both_funds = document.getElementById("both_funds");
+	var special_trust_funds = document.getElementById("special_trust_funds");
+	
+	
+	if(trust_funds.checked == true){
+		home_self.style.display = "none";
+		trust_funds_div.style.display = "block"
+		getTrustFundAccounts();
+	}else if(non_trust_funds.checked == true){
+		home_self.style.display = "none";
+		trust_funds_div.style.display = "block"
+		getNonTrustFundAccounts();
+	}else if(special_trust_funds.checked == true){
+		home_self.style.display = "none";
+		trust_funds_div.style.display = "block"
+		getSpecialTrustFundAccounts();
+	}else if(both_funds.checked == true){
+		home_self.style.display = "none";
+		trust_funds_div.style.display = "block"
+		getBothFundAccounts();
+	}
+	
+	
+	
+}
+
+
+function getTrustFundAccounts(){
+	var data = {
+		"phoneOneModeOfPayment": "M-PESA",
+		"departmentalAccounts": "[\"Church Meeting  Account::509189\",\"Laptop  Account::508749\",\"Pen Account::512069\",\"Development Account::13825\",\"Kamungei Account::13834\",\"Children Account::351108\",\"Adventurers Account::366035\",\"Lunch Fellowship  Account::472328\",\"Camp Meeting Expenses Account::395883\",\"Laptop Account::513527\"]",
+		"churchName": "Cfms",
+		"conferenceName": "Cfms Project Kenya Conference",
+		"districtName": "Cfms Kenya District",
+		"conferenceNumber": "CFMS",
+		"otherPhoneNumber": "+254775351396",
+		"memberName": "Andrew Keitany",
+		"isPessonnel": true,
+		"groups": "[\"Moi University::1016\"]",
+		"districtNumber": "CFMS1",
+		"churchNumber": "29001",
+		"otherPhoneModeOfPayment": "Orange Money",
+		"membershipNumber": "CN3196",
+		"phoneNumber": "254707981971",
+		"trustFundAccounts": "[\"Conference Development Account::426234\",\"Thirteenth Sabbath Account::191295\",\"Tithe Account::127989\",\"Camp Meeting Account::127991\",\"Tithe Account::13822\",\"Camp Meeting Account::13824\",\"Combined Offerings Account::13823\",\"Combined Offerings Account::127990\"]",
+		"sessionNumber": 11749295,
+		"specialTrustFundAccounts": "[\"UEAB Account::457992\",\"Djibouti Mission Account::454913\"]",
+		"function": "mobileRequestChurchDetails",
+		"availableMeansOfPayment": "[M-PESA]",
+		"status": 0
+	}
+	
+	// Trust Fund Accounts
+	var request = data.trustFundAccounts;
+	request = request.replace('[', '');
+	request = request.replace(']', '');
+	const departments = request.split(',');
+	var html = new String("");
+	html += "<h1 style=\"text-align: center;font-size:12px;\">Trust Funds</h1>";
+	html += "<hr><table><tbody><tr>";
+	html += "<th style=\"padding-right:15px;font-size:12px;border-bottom:2px solid black;\">Contribution Type</th>";				
+	html += "<th style=\"padding-left:15px;font-size:12px;border-bottom:2px solid black;\">Amount Offered</th>"
+	html += "</tr>"
+	
+	for (i=0;i < departments.length; i++){
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].split("::")
+		html += "<tr>";
+		html += "<td style=\"font-size:12px;padding-top:10px;\">"+ departments[i][0] +"</td>";
+		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
+		html += "<input type=\"number\" class=\"login_input\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal()\" onkeydown=\"GetTotal()\"  onkeyup=\"GetTotal()\">";
+		html += "</td></tr>";
+	}
+	html += "<tr><td style=\"font-size:12px;\">Total</td>";
+	html += "<td style=\"padding-left:15px;padding-top:10px;\"><input type=\"number\" class=\"login_input\" id=\"FTotal\" name=\"churchCode\" placeholder=\"\" readonly></td></tr>";
+	html += "<tbody></table>";
+	
+	$("#test").html(html);
+	
+}
+
+function getNonTrustFundAccounts(){
+	var data = {
+		"phoneOneModeOfPayment": "M-PESA",
+		"departmentalAccounts": "[\"Church Meeting  Account::509189\",\"Laptop  Account::508749\",\"Pen Account::512069\",\"Development Account::13825\",\"Kamungei Account::13834\",\"Children Account::351108\",\"Adventurers Account::366035\",\"Lunch Fellowship  Account::472328\",\"Camp Meeting Expenses Account::395883\",\"Laptop Account::513527\"]",
+		"churchName": "Cfms",
+		"conferenceName": "Cfms Project Kenya Conference",
+		"districtName": "Cfms Kenya District",
+		"conferenceNumber": "CFMS",
+		"otherPhoneNumber": "+254775351396",
+		"memberName": "Andrew Keitany",
+		"isPessonnel": true,
+		"groups": "[\"Moi University::1016\"]",
+		"districtNumber": "CFMS1",
+		"churchNumber": "29001",
+		"otherPhoneModeOfPayment": "Orange Money",
+		"membershipNumber": "CN3196",
+		"phoneNumber": "254707981971",
+		"trustFundAccounts": "[\"Conference Development Account::426234\",\"Thirteenth Sabbath Account::191295\",\"Tithe Account::127989\",\"Camp Meeting Account::127991\",\"Tithe Account::13822\",\"Camp Meeting Account::13824\",\"Combined Offerings Account::13823\",\"Combined Offerings Account::127990\"]",
+		"sessionNumber": 11749295,
+		"specialTrustFundAccounts": "[\"UEAB Account::457992\",\"Djibouti Mission Account::454913\"]",
+		"function": "mobileRequestChurchDetails",
+		"availableMeansOfPayment": "[M-PESA]",
+		"status": 0
+	}
+	
+	// Non Trust Fund Accounts
+	var request = data.departmentalAccounts;
+	request = request.replace('[', '');
+	request = request.replace(']', '');
+	const departments = request.split(',');
+	var html = new String("");
+	html += "<h1 style=\"text-align: center;font-size:12px;\">Non Trust Funds</h1>";
+	html += "<hr><table><tbody><tr>";
+	html += "<th style=\"padding-right:15px;font-size:12px;border-bottom:2px solid black;\">Contribution Type</th>";				
+	html += "<th style=\"padding-left:15px;font-size:12px;border-bottom:2px solid black;\">Amount Offered</th>"
+	html += "</tr>"
+	
+	for (i=0;i < departments.length; i++){
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].split("::")
+		html += "<tr>";
+		html += "<td style=\"font-size:12px;padding-top:10px;\">"+ departments[i][0] +"</td>";
+		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
+		html += "<input type=\"number\" class=\"login_input\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal1()\" onkeydown=\"GetTotal1()\"  onkeyup=\"GetTotal1()\">";
+		html += "</td></tr>";
+	}
+	html += "<tr><td style=\"font-size:12px;\">Total</td>";
+	html += "<td style=\"padding-left:15px;padding-top:10px;\"><input type=\"number\" class=\"login_input\" id=\"FTotal1\" name=\"churchCode\" placeholder=\"\" readonly></td></tr>";
+	html += "<tbody></table>";
+	
+	$("#test").html(html);
+	
+}
+
+function getSpecialTrustFundAccounts(){
+	var data = {
+		"phoneOneModeOfPayment": "M-PESA",
+		"departmentalAccounts": "[\"Church Meeting  Account::509189\",\"Laptop  Account::508749\",\"Pen Account::512069\",\"Development Account::13825\",\"Kamungei Account::13834\",\"Children Account::351108\",\"Adventurers Account::366035\",\"Lunch Fellowship  Account::472328\",\"Camp Meeting Expenses Account::395883\",\"Laptop Account::513527\"]",
+		"churchName": "Cfms",
+		"conferenceName": "Cfms Project Kenya Conference",
+		"districtName": "Cfms Kenya District",
+		"conferenceNumber": "CFMS",
+		"otherPhoneNumber": "+254775351396",
+		"memberName": "Andrew Keitany",
+		"isPessonnel": true,
+		"groups": "[\"Moi University::1016\"]",
+		"districtNumber": "CFMS1",
+		"churchNumber": "29001",
+		"otherPhoneModeOfPayment": "Orange Money",
+		"membershipNumber": "CN3196",
+		"phoneNumber": "254707981971",
+		"trustFundAccounts": "[\"Conference Development Account::426234\",\"Thirteenth Sabbath Account::191295\",\"Tithe Account::127989\",\"Camp Meeting Account::127991\",\"Tithe Account::13822\",\"Camp Meeting Account::13824\",\"Combined Offerings Account::13823\",\"Combined Offerings Account::127990\"]",
+		"sessionNumber": 11749295,
+		"specialTrustFundAccounts": "[\"UEAB Account::457992\",\"Djibouti Mission Account::454913\"]",
+		"function": "mobileRequestChurchDetails",
+		"availableMeansOfPayment": "[M-PESA]",
+		"status": 0
+	}
+	
+	// Non Trust Fund Accounts
+	var request = data.specialTrustFundAccounts;
+	request = request.replace('[', '');
+	request = request.replace(']', '');
+	const departments = request.split(',');
+	var html = new String("");
+	html += "<h1 style=\"text-align: center;font-size:12px;\">Special Trust Funds</h1>";
+	html += "<hr><table><tbody><tr>";
+	html += "<th style=\"padding-right:15px;font-size:12px;border-bottom:2px solid black;\">Contribution Type</th>";				
+	html += "<th style=\"padding-left:15px;font-size:12px;border-bottom:2px solid black;\">Amount Offered</th>"
+	html += "</tr>"
+	
+	for (i=0;i < departments.length; i++){
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].split("::")
+		html += "<tr>";
+		html += "<td style=\"font-size:12px;padding-top:10px;\">"+ departments[i][0] +"</td>";
+		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
+		html += "<input type=\"number\" class=\"login_input\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal2()\" onkeydown=\"GetTotal2()\"  onkeyup=\"GetTotal2()\">";
+		html += "</td></tr>";
+	}
+	html += "<tr><td style=\"font-size:12px;\">Total</td>";
+	html += "<td style=\"padding-left:15px;padding-top:10px;\"><input type=\"number\" class=\"login_input\" id=\"FTotal2\" name=\"churchCode\" placeholder=\"\" readonly></td></tr>";
+	html += "<tbody></table>";
+	
+	$("#test").html(html);
+	
+}
+
+
+function getBothFundAccounts(){
+	var data = {
+		"phoneOneModeOfPayment": "M-PESA",
+		"departmentalAccounts": "[\"Church Meeting  Account::509189\",\"Laptop  Account::508749\",\"Pen Account::512069\",\"Development Account::13825\",\"Kamungei Account::13834\",\"Children Account::351108\",\"Adventurers Account::366035\",\"Lunch Fellowship  Account::472328\",\"Camp Meeting Expenses Account::395883\",\"Laptop Account::513527\"]",
+		"churchName": "Cfms",
+		"conferenceName": "Cfms Project Kenya Conference",
+		"districtName": "Cfms Kenya District",
+		"conferenceNumber": "CFMS",
+		"otherPhoneNumber": "+254775351396",
+		"memberName": "Andrew Keitany",
+		"isPessonnel": true,
+		"groups": "[\"Moi University::1016\"]",
+		"districtNumber": "CFMS1",
+		"churchNumber": "29001",
+		"otherPhoneModeOfPayment": "Orange Money",
+		"membershipNumber": "CN3196",
+		"phoneNumber": "254707981971",
+		"trustFundAccounts": "[\"Conference Development Account::426234\",\"Thirteenth Sabbath Account::191295\",\"Tithe Account::127989\",\"Camp Meeting Account::127991\",\"Tithe Account::13822\",\"Camp Meeting Account::13824\",\"Combined Offerings Account::13823\",\"Combined Offerings Account::127990\"]",
+		"sessionNumber": 11749295,
+		"specialTrustFundAccounts": "[\"UEAB Account::457992\",\"Djibouti Mission Account::454913\"]",
+		"function": "mobileRequestChurchDetails",
+		"availableMeansOfPayment": "[M-PESA]",
+		"status": 0
+	}
+	
+	// Non Trust Fund Accounts
+	var request = data.departmentalAccounts;
+	var request1 = data.trustFundAccounts;
+	request = request.replace('[', '');
+	request = request.replace(']', '');
+	const departments = request.split(',');
+	
+	// Trust Fund Accounts
+	request1 = request1.replace('[', '');
+	request1 = request1.replace(']', '');
+	const conference = request1.split(',');
+	
+	var html = new String("");
+	html += "<h1 style=\"text-align: center;font-size:12px;\">Trust Funds</h1>";
+	html += "<hr><table><tbody><tr>";
+	html += "<th style=\"padding-right:15px;font-size:12px;border-bottom:2px solid black;\">Contribution Type</th>";				
+	html += "<th style=\"padding-left:15px;font-size:12px;border-bottom:2px solid black;\">Amount Offered</th>"
+	html += "</tr>"
+	for (i=0;i < conference.length; i++){
+		conference[i] = conference[i].replace('"','');
+		conference[i] = conference[i].replace('"','');
+		conference[i] = conference[i].split("::")
+		html += "<tr>";
+		html += "<td style=\"font-size:12px;padding-top:10px;\">"+ conference[i][0] +"</td>";
+		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
+		html += "<input type=\"number\" class=\"login_input\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal3()\" onkeydown=\"GetTotal3()\" onkeyup=\"GetTotal3()\">";
+		html += "</td></tr>";
+	}
+	html += "<tbody></table>";
+	html += "<hr>"
+	html += "<h1 style=\"text-align: center;font-size:12px;\">Non Trust Funds</h1>";
+	html += "<hr><table><tbody><tr>";
+	html += "<th style=\"padding-right:15px;font-size:12px;border-bottom:2px solid black;\">Contribution Type</th>";				
+	html += "<th style=\"padding-left:15px;font-size:12px;border-bottom:2px solid black;\">Amount Offered</th>"
+	html += "</tr>"
+	
+	for (i=0;i < departments.length; i++){
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].replace('"','');
+		departments[i] = departments[i].split("::")
+		html += "<tr>";
+		html += "<td style=\"font-size:12px;padding-top:10px;\">"+ departments[i][0] +"</td>";
+		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
+		html += "<input type=\"number\" class=\"login_input\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal4()\" onkeydown=\"GetTotal4()\"  onkeyup=\"GetTotal4()\">";
+		html += "</td></tr>";
+	}
+	html += "<tr><td style=\"font-size:12px;\">Total</td>";
+	html += "<td style=\"padding-left:15px;padding-top:10px;\"><input type=\"number\" class=\"login_input\" id=\"FTotal4\" name=\"churchCode\" placeholder=\"\" readonly></td></tr>";
+	html += "<tbody></table>";
+	
+	$("#test").html(html);
+	
+}
+
+</script>
+
+</body>
+</html>

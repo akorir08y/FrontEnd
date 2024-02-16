@@ -1,0 +1,85 @@
+/* Add a background color when the inputs get focus */
+
+
+#OTP_Head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-field input {
+  width: 24px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 2px;
+  border: 2px solid #55525c;
+  font-weight: bold;
+  outline: none;
+  transition: all 0.1s;
+}
+
+.otp-field input:focus {
+  border: 2px solid #a527ff;
+  box-shadow: 0 0 2px 2px #a527ff6a;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.space {
+  margin-right: 1rem !important;
+}
+
+#togglePassword {
+    font-size:18px;
+	color:black;
+	background-color: #f1f1f1;
+	margin-top:-4px;
+}
+
+#togglePassword1 {
+	font-size:18px;
+	color:black;
+	margin-top:-4px;
+	background-color: #f1f1f1;
+}
+
+#togglePassword2 {  
+    
+	font-size:18px;
+	color:black;
+	margin-top:-4px;
+	background-color: #f1f1f1;
+}
+
+#telephone, #telephone1 {  
+    font-size:18px;
+	color:black;
+	margin-top:-4px;
+	background-color: #f1f1f1;
+}
+
+#lock, #lock1 {  
+    font-size:18px;
+	color:black;
+	margin-top:-4px;
+	background-color: #f1f1f1;
+}
+
+#password_back, #password_back1, #password_back2{
+	background-color: #f1f1f1;
+	border:none;
+}
+
+#basic-addon1,#basic-addon2, #basic-addon3, #basic-addon4, #basic-addon5{
+	background-color: #f1f1f1;
+	border:none;
+}

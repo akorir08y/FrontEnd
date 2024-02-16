@@ -1,0 +1,171 @@
+html{
+	scroll-padding-top: 102px;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+	font-size: 14px;
+}
+
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+#nav_header{
+	position: fixed;
+	top: 0;
+	height: 30px;
+	width:100%;
+	font-size:14px;
+	background-color: #24478f;
+}
+
+#sub_header{
+	position: fixed;
+	top:30px;
+	width:100%;
+	font-size:14px;
+	background: linear-gradient(170deg,
+	hsl(0, 0%, 22%) 0%,
+	hsl(0, 0%, 6%) 30%);
+}
+
+#sub_nav{
+	background: linear-gradient(170deg,
+	hsl(0, 0%, 22%) 0%,
+	hsl(0, 0%, 6%) 30%);
+	width:100%;
+	color:white;
+}
+
+#sub_nav_icon{
+	background: linear-gradient(170deg,
+	hsl(0, 0%, 22%) 0%,
+	hsl(0, 0%, 6%) 30%);
+	color:white;
+}
+
+a:hover{
+	background-color: #24478f;
+}
+
+#nav_header:hover{
+	background-color: #24478f;
+}
+
+.header{
+	font-size: 14px;
+	text-align: center;
+	color:white;
+	margin-top:10px;
+}
+
+#sidebar{
+	position:fixed;
+	top:95px;
+	left:10px;
+	font-size: 14px;
+}
+
+.topnav {
+  position:sticky;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  color: white;
+}
+
+#footer{
+	position:fixed;
+	width:100%;
+	bottom:0;
+	height:40px;
+	margin-top:10px;
+	padding-bottom:10px;
+	font-size:14px;
+}
+
+#content{
+	font-size:14px;
+	z-index: -1;
+	position: sticky;
+	margin-bottom:10px;
+	margin-top:20px;
+}
+
+.amount{
+	padding:5px;
+	border-radius:7px;
+	background-color:#24478f;
+	font-size: 12px;
+	color:white;
+}
+
+
+.button2{
+	background-color: #24478f;
+	color: white;
+	padding: 4px 20px;
+	margin: 10px 10px;
+	border: none;
+	width: 50%;
+	white-space: nowrap;
+	border-radius:10px;
+	opacity: 0.9;
+	font-size: 12px;
+	position:relative;
+	left:25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.nav-item{
+	background-color:#24478f;
+	color: white;
+	font-size:14px;
+}
+
+
+.label_input{
+	font-size: 14px;
+}
+
+.form-check-label{
+	font-size: 14px;
+}
+
+#contend{
+	z-index: -1;
+	position: sticky;
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+
+.containers{
+	position:sticky;
+	top:90px;
+	z-index: 3;
+	background-color:white;
+	opacity:1.0;
+}

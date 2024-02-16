@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged in Users</title>
+    <!-- Jquery Script -->
+    <script th:src="@{https://code.jquery.com/jquery-3.7.1.min.js}"></script>
+
+    <!-- ==== Stylesheets and Javascript Files ==== -->
+    <link rel="stylesheet" th:href="@{/css/dark.css}" type="text/css">
+    <script th:src="@{/js/dark.js}" type="text/javascript"></script>
+    <script th:src="@{/js/form.js}" type="text/javascript"></script>
+</head>
+<body>
+    <h2 style="text-align:center;">CFMS Personnel Authentication</h2>
+
+    <!-- ==== Group of Buttons ==== -->
+    <button onclick="document.getElementById('id03').style.display='block'" style="width:auto;" class="button">CFMS Personnel Login</button>
+    <button onclick="document.getElementById('id04').style.display='block'" style="width:auto;" class="button">Reset Personnel Password</button>
+    <h3>You are Successfully Logged In As a Member</h3>
+
+    <!-- Personnel Login Form-->
+    <div id="id03" class="modal">
+        <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="modal-content" id="modal-form">
+            <div class="container">
+                <img th:src="@{/images/Logo.png}" width="250" height="100" class="mpesa-logo">
+                <h2 style="text-align:center;">CFMS Personnel Login</h2>
+                <!--<p>Please fill in the Login details</p>-->
+                <hr>
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" maxlength="12" name="username" id="username2" required>
+
+                <label><b>Password</b></label>
+                <input type="password"  name="password" id="password2" required>
+
+                <!--
+                <hr>
+                <p>OTP has been Requested</p>
+                <div id="time"></div>
+                <br>
+                -->
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn"  onclick="personnelLogin()">Personnel Login</button><br>
+                    <div id="responseDiv2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Pin Modal Form-->
+    <div id="id04" class="modal">
+        <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="modal-content" id="modal-form1">
+            <div class="container">
+                <img th:src="@{/images/Logo.png}" width="250" height="100" class="mpesa-logo">
+                <h2 style="text-align:center;">CFMS Personnel Password Reset</h2>
+                <!--<p>Please fill in the Login details</p>-->
+                <hr>
+                <label><b>Phone Number</b></label>
+                <input type="text" placeholder="Enter Username" maxlength="12" name="username" id="username3" required>
+
+                <label><b>Pin</b></label>
+                <input type="password" name="password" id="password3" required>
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn"  onclick="resetPersonnelPassword()">Reset Password</button><br>
+                    <div id="responseDiv3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

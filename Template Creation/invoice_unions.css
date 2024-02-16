@@ -1,0 +1,187 @@
+body{
+	font-family:Trebuchet MS;
+	font-size:12px;
+}
+
+.input-group-text {
+    width: 85px;
+}
+
+table, th, td {
+    padding:3px;
+}
+
+#invoice{
+	text-align:center;
+	background-color:white;
+	float:right;
+	margin-top:-250px;
+	margin-right:70px;
+	top:20px;
+}
+
+.invoice-bordered{
+	border: 2.5px solid grey;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top:-5px;
+	padding-bottom:-5px;
+}
+
+#invoice-items{
+    text-align:left;
+    border:none;
+}
+
+.invoice-unordered{
+	padding-left: 55px;
+	padding-right: 33px;
+	padding-top:-5px;
+	padding-bottom:-5px;
+	background-color:#e6e6ff;
+}
+
+.invoice-text{
+	font-weight: bold;
+	text-align:right;
+}
+
+
+.card-header thead tr{
+    background-color: #24478f;
+    color:white;
+    border: black;
+}
+
+.input-field{
+	height:30px;
+	border-radius:10px;
+	padding:5px;
+}
+
+#invoice-items{
+	text-align:left;
+	border:none;
+}
+
+input{
+    text-align:left;
+}
+
+.totals{
+	position:relative;
+	float:right;
+	margin-top:0px;
+	padding-right:5px;
+}
+
+input{
+    text-align:right;
+}
+
+.calculate1{
+	margin-right:40px;
+	height:10px;
+	padding:0px;
+}
+
+.card-body thead tr{
+    background-color: #24478f;
+    color:white;
+    border: 1px solid black;
+}
+
+.head{
+    padding:8px;
+    background-color:#24478f;
+    text-align: left;
+    color:white;
+	width:550px;
+}
+
+#invoice-header{
+	background-color:white;
+	margin-top:30px;
+}
+
+.other-info{
+    margin-top:10px;
+    padding:10px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+@media print {
+    .card-header thead tr{
+        color: #00124d;
+        border-collapse: collapse;
+    }
+
+    .card-body thead tr{
+        color: #00124d;
+        border-collapse: collapse;
+    }
+
+    .head{
+        padding:8px;
+        background-color:#00124d;
+        text-align: center;
+        color:white;
+        border-collapse: collapse;
+    }
+}
+
+#badge{
+	border:none;
+	position:absolute;
+	right:1%;
+	bottom:28%;
+}
+
+.other-inf{
+	 width:72%;
+}
+/* Letter Spacing to solve the JSPDF Spacing Problem */
+#divID{
+    letter-spacing: 1px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    #badge{
+        position:absolute;
+        float:right;
+        right:2%
+        border:none;
+        margin-top:20px;
+    }
+
+    #badge2{
+        border: none;
+    }
+
+    .other-inf{
+    	width:72%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    #badges{
+		float:left;
+		margin-top:10px;
+		margin-left:100px;
+		border: none;
+		width:auto;
+		/*display: flex;
+		flex-wrap: wrap;
+		align-content: center;*/
+
+    }
+	
+	.other-inf{
+	    position:sticky;
+	    float:left;
+    }
+
+}
