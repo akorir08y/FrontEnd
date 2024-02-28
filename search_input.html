@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-spacing: 10px;
+  border: none;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;  
+}
+
+input{
+	border:none;
+    padding:10px;
+    box-shadow: 10px 10px 5px lightblue;
+    border-radius: 10px;
+}
+
+.con{
+	width: 100%;
+    padding: 10px;
+    box-shadow: 10px 10px 5px lightblue;
+    padding-top:10px;
+    border-radius:15px;
+    height:auto;
+}
+
+.con:focus{
+	background-color: lightblue;
+    color: white;
+}
+
+.con:hover{
+	background-color: lightblue;
+    color: white;
+}
+
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.second{
+	margin-top: 5px;
+}
+
+
+.links{
+	padding:10px;
+	border-radius:10px;
+	background-color: #24478f;
+	color:white;
+	text-decoration:none;
+	float:right;
+}
+</style>
+</head>
+<body>
+
+<h2>List Active Members</h2>
+<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+<input id="myInput" type="text" placeholder="Search.." >
+<br><br>
+
+<table>
+  <thead>
+  </thead>
+  <tbody id="myTable">
+  <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span><a href="https://www.google.com" class="links">View Member</a></td>
+   </tr>
+   <tr tabindex="0">
+    <td class="con"><span class='left'>+254711196964</span><span class='right'>Nancy Kemunto</span><br><br><span class="second">CO2691</span></td>
+    <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+     </tr>
+      <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+     </tr>
+     <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+     </tr>
+     <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+     </tr>
+     <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+     </tr>
+     <tr tabindex="0">
+    <td class="con"><span class='left'>+254712196964</span><span class='right'>Dolce Bosibori Otiso</span><br><br><span class="second">CO2678</span></td>
+  </tr>
+  </tbody>
+</table>
+  
+<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+
+</body>
+</html>

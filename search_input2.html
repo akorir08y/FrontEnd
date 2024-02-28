@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable a").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-spacing: 10px;
+  border: none;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;  
+}
+
+input{
+	border:none;
+    padding:10px;
+    box-shadow: 10px 10px 5px lightblue;
+    border-radius: 10px;
+}
+
+.con{
+	width: 100%;
+    padding: 10px;
+    box-shadow: 10px 10px 5px lightblue;
+    padding-top:10px;
+    border-radius:15px;
+    height:auto;
+}
+
+.con:focus{
+	background-color: lightblue;
+    color: white;
+}
+
+.con:hover{
+	background-color: lightblue;
+    color: white;
+}
+
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.second{
+	margin-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<h2>List Active Members</h2>
+<p>Type something in the input field to search the table for first names, last names or emails:</p>  
+<input id="myInput" type="text" placeholder="Search.." >
+<br><br>
+
+<div class="list-group" id="myTable">
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">50.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">23 Oct,23 12:30</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			   <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">50.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">23 Oct,23 12:30</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			   <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">50.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">23 Oct,23 12:30</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			   <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">50.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">23 Oct,23 12:30</small>
+			  </a>
+			  <a href="#" class="list-group-item list-group-item-action">
+				<div class="d-flex w-100 justify-content-between">
+				  <h5 class="mb-1">Cash Receipted For Camp Meeting</h5>
+				  <small class="amount">20.00 (Balance: 172.00)</small>
+				</div>
+				<p class="mb-1" style="margin-top:10px;">Receipt No: 9734510</p>
+				<small style="float:right;margin-top:-20px;">30 Oct,23 09:01</small>
+			  </a>
+			</div>
+  
+<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+
+</body>
+</html>

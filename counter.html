@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="getCounter()">
+	<div id="demo"></div>
+<script>
+
+function getCounter(){
+	var contribution = 350 * 100;
+	var sum = 0;
+	
+	for(i=0; i==12; i++){
+		sum += contribution + sum;
+	}
+	
+	document.getElementById("demo").innerHTML = sum;
+}
+</script>
+</body>
+</html>

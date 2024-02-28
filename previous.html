@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>javascript get previous month name</title>
+</head>
+<body>
+  <script type = "text/javascript">
+
+   function getPreviousMonthName(dt){
+     monthNamelist = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+    return monthNamelist[dt.getMonth()-1];
+   };
+
+    var date = new Date(); // date object
+    var mName = getPreviousMonthName(date); // javascript get previous month name
+    document.write( "javascript get previous month name :- " + mName ); 
+
+  </script>  
+</body>
+</html>

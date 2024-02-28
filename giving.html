@@ -21,28 +21,28 @@
 <body>
 
 
-<div id="nav_header">
+<div class="topnav" id="nav_header">
   <h1 class="header">Welcome As a Member</h1>
 </div>
 
-<div id="sub_header">
+<div class="topnav" id="sub_header">
   <a href="#home">
   <i class="bi bi-door-open" style="margin-right:10px;font-size:18px"></i>
   Personnel Login
   
   </a>
-  <a href="#about">
+  <a href="#about" class="split">
   Logout
   <i class="bi bi-box-arrow-right" style="margin-left:10px;font-size:18px"></i>
   </a>
-  <a href="#content" onclick="fetch()">
+  <a href="#content" class="split" onclick="fetch()">
   Profile
   <i class="bi bi-person-circle" style="margin-left:10px;font-size:18px"></i>
   </a>
   
 </div>
 
-<div class="container" data-bs-target="#sub_header" data-bs-spy="scroll" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+<div class="container">
   <div class="row">
     <div class="col-sm-2">
        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" id="sidebar">
@@ -76,7 +76,7 @@
 			<hr>
 		</div>
     </div>
-    <div class="col-sm-10" style="overflow-y:scroll;">
+    <div class="col-sm-10" style="overflow-y:scroll;margin-top:30px;">
 		<div id="contents">
 			<div id="member_giving" style="display:none;">
 				<div class="col-5">
@@ -129,7 +129,7 @@
 				<button type="button" class="button1" style="width:50%" onclick="getChurchCode()">Submit</button>
 			</div>
 			
-			<div class="col-5" id="home_church_self">
+			<div class="col-5" id="home_church_self" style="display:none;">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
 				<hr>
@@ -142,7 +142,7 @@
 						<input type="text" class="login_input" id="memberName" name="churchCode" placeholder="Andrew Keitany" readonly>
 				</div>
 				
-				<div class="col-12" style="margin-top:10px;">
+				<div class="col-12" style="margin-top:10px;" style="display:none;">
 						  <label class="label_input" for="flexRadioDefault1">Select Fund Type</label>
 						  <div class="form-check">
 							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="trust_funds" value="trust_funds">
@@ -264,6 +264,34 @@
 							<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-person" style="background-color: #f1f1f1;font-size:16px;"></i></span>
 							<input type="text" class="login_input" id="memberName2" name="churchCode" placeholder="Andrew Keitany" readonly>
 					</div>
+				</div>
+				
+				<div id="test" style="position: sticky;margin-bottom:50px;">
+				</div>
+				
+				
+			</div>
+			
+			<div id="trust_funds_divs" class="overflow-auto">
+				<div class="responseDiv"></div>
+				<div id="offerings1">
+					<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
+					<hr>
+					<form id="my-form">
+						<div class="input-group mb-3">
+								<input type="text" class="login_input" id="" name="churchCode1" placeholder="Cfms">
+						</div>
+						<div class="input-group mb-3">
+								<input type="text" class="login_input" name="churchCode2" placeholder="Andrew Keitany">
+						</div>
+						<div class="input-group mb-3">
+								<input type="text" class="login_input" name="churchCode3" placeholder="Andrew Keitany">
+						</div>
+						<div class="input-group mb-3">
+								<input type="text" class="login_input" name="churchCode4" placeholder="Andrew Keitany">
+						</div>
+						<button id="button2">Disable Inputs</button>
+					</form>
 				</div>
 				
 				<div id="test" style="position: sticky;margin-bottom:50px;">
@@ -452,6 +480,15 @@ function getChurchCode(){
 	}
 }
 
+function getAllPopulatedValues(){
+	const form = document.getElementById('my-form');
+
+	for (const element of form.elements) {
+		if (element.value == null){
+		   element.style.display = "none";
+		}
+	}
+}
 
 
 function getCheckedAccounts(){

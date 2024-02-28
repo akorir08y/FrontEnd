@@ -21,26 +21,6 @@
 <body onload="getTrustFundAccounts()">
 
 
-<div class="topnav" id="nav_header">
-  <h1 class="header">Welcome As a Member</h1>
-</div>
-
-<div class="topnav" id="sub_header">
-  <a class="active" href="#home">
-  <i class="bi bi-door-open" style="margin-right:10px;font-size:18px"></i>
-  Personnel Login
-  
-  </a>
-  <a href="#about" class="split">
-  Logout
-  <i class="bi bi-box-arrow-right" style="margin-left:10px;font-size:18px"></i>
-  </a>
-  <a href="#content" class="split" onclick="fetch()">
-  Profile
-  <i class="bi bi-person-circle" style="margin-left:10px;font-size:18px"></i>
-  </a>
-  
-</div>
 
 <div class="container">
   <div class="row">
@@ -78,7 +58,7 @@
     </div>
     <div class="col-sm-10" style="overflow-y:scroll;">
 		<div id="contents">
-			<div id="member_giving" style="display:none;">
+			<div id="member_giving" style=";">
 				<div class="col-5">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
@@ -118,7 +98,7 @@
 				</div>
 			</div>
 			
-			<div class="col-5" id="church_code_section" style="display:none;">
+			<div class="col-5" id="church_code_section" style=";">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Enter Host Church Code</h1>
 				<hr>
@@ -129,7 +109,7 @@
 				<button type="button" class="button1" style="width:50%" onclick="getChurchCode()">Submit</button>
 			</div>
 			
-			<div class="col-5" id="home_church_self" style="display:none;">
+			<div class="col-5" id="home_church_self" style=";">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
 				<hr>
@@ -144,35 +124,35 @@
 				
 				<div class="col-12" style="margin-top:10px;">
 						  <label class="label_input" for="flexRadioDefault1">Select Fund Type</label>
-						  <div class="form-check">
+						  <td>
 							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="trust_funds">
 							  <label class="form-check-label" for="trust_funds">
 								Trust Funds
 							  </label>
-						  </div>
-						  <div class="form-check">
+						  </td>
+						  <td>
 							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="non_trust_funds">
 							  <label class="form-check-label" for="non_trust_funds">
 								Non Trust Funds
 							  </label>	
-						  </div>
-						  <div class="form-check">
+						  </td>
+						  <td>
 							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="both_funds">
 							  <label class="form-check-label" for="both_funds">
 								Both Funds
 							  </label>
-						  </div>
-						  <div class="form-check">
+						  </td>
+						  <td>
 							  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="special_trust_funds">
 							  <label class="form-check-label" for="special_trust_funds">
 								Special Trust Funds
 							  </label>	
-						  </div>
+						  </td>
 				</div>
 				
 			</div>
 			
-			<div class="col-5" id="home_church_others" style="display:none;">
+			<div class="col-5" id="home_church_others" style=";">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
 				<hr>
@@ -215,7 +195,7 @@
 							  </label>	
 						  </div>
 				</div>
-				<div class="col-12" id="identify_member_by" style="margin-top:10px;display:none;">
+				<div class="col-12" id="identify_member_by" style="margin-top:10px;;">
 						<label class="label_input" for="flexRadioDefault1">Identify Member by</label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="flexRadioDefault5" id="phone_number" onclick="showIdentifier()">
@@ -230,16 +210,16 @@
 							</label>	
 						</div>
 				</div>
-				<div class="col-12" id="identify_member_only" style="margin-top:10px;display:none;">
+				<div class="col-12" id="identify_member_only" style="margin-top:10px;;">
 				
-						<div id="cfms_id_input" style="display:none">
+						<div id="cfms_id_input" style="">
 							<label class="label_input" for="cfms_id_input">Member CFMS ID(Case Specific)</label>
 							<div class="input-group mb-3">
 								<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-123" style="background-color: #f1f1f1;"></i></span>
 								<input type="text" class="login_input" id="cfms_id" name="churchCode" placeholder="AB1234">
 							</div>
 						</div>
-						<div id="associated_phone_number" style="display:none;">
+						<div id="associated_phone_number" style=";">
 							<label class="label_input" for="phone1">Associated Phone Number</label>
 							<div class="input-group mb-3">
 								<span class="input-group-text" style="background-color: #f1f1f1;"><i class="bi bi-buildings-fill" style="background-color: #f1f1f1;"></i></span>
@@ -250,7 +230,7 @@
 				
 			</div>
 			
-			<div id="trust_funds_div" class="col-5" style="display:none;">
+			<div id="trust_funds_div" class="col-5" style=";">
 				<div class="responseDiv"></div>
 				<h1 style="text-align:center;margin-top: 10px;">Giving Offerings</h1>
 				<hr>
