@@ -112,7 +112,7 @@ $(document).ready(function(){
 		<!-- Profile List -->
 		<div class="details">
 			<div class="recentOrders">
-				<div id="my_profile" style="display:none;">
+				<div id="my_profile">
 				<div class="cardHeader">
 					<h2 style="text-align:center;">Profile Information</h2>
 				</div>
@@ -205,12 +205,13 @@ $(document).ready(function(){
 							<td><input type="text" id="residence" name="residence" placeholder="Residence"></td>
 						</tr>
 						<tr>
-							<td><button type="button" class="btn" onclick="displayDetails()" style="width:50%;">Submit</button></td>
+							<td><button type="button" class="btn" onclick="displayDetails()" style="width:100%;">Back</button></td>
+							<td><button type="button" class="btn" onclick="displayDetails()" style="width:100%;">Submit</button></td>
 						</tr>
 					</tbody>
 				</table>
 				</div>
-				<div id="member_profile">
+				<div id="member_profile" style="display:none;">
 				</div>
 			</div>
 			<div class="recentCustomers">
