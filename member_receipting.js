@@ -63,34 +63,45 @@ function GetTotal3()
 }
 
 function myFunction() {
-  var home_church = document.getElementById("home_church");
-  var host_church = document.getElementById("host_church");
-  var member_giving = document.getElementById("member_giving");
-  var home_church_view = document.getElementById("home_church_self");
-  var home_church_others = document.getElementById("home_church_others");
-  var self = document.getElementById("self");
-  var others = document.getElementById("others");
+	
+  // All Receipting Options	
+  var church_member = document.getElementById("church_member");
+  var visitor = document.getElementById("visiting_member");
+  var guest = document.getElementById("guest");
+  var group = document.getElementById("group");
+  var family = document.getElementById("family");
+  var department = document.getElementById("department");
+  var institution = document.getElementById("institution");
   
   
-  var name = "Cfms";  
-  var statement = "Is "+ name +" Your home church ?";
+  // Respective Section  
+  var cash_receipting = document.getElementById("cash_receipting");
+  var visitor_div = document.getElementById("home_church_others");
+  var guest_div = document.getElementById("home_church_others1");
+  var group_div = document.getElementById("home_church_others2");
+  var family_div = document.getElementById("home_church_others3");
+  var department_div = document.getElementById("home_church_others4");
+  var institution_div = document.getElementById("home_church_others5");
   
-  var text = document.getElementById("church_code_section");
-  //var member_giving = document.getElementById("start_section");
-  
-  if (home_church.checked == true && self.checked == true){
-	  if(confirm(statement) == true){
-		member_giving.style.display = "none";
-		home_church_view.style.display = "block";
-	  }
-  }else if(home_church.checked == true && others.checked == true){
-	  if(confirm(statement) == true){
-		member_giving.style.display = "none";
-		home_church_others.style.display = "block";
-	  }      
-  }else{
-	  text.style.display = "block";
-	  member_giving.style.display = "none";
+  // Logic to Enable Pages  
+  if (visitor.checked == true){
+		cash_receipting.style.display = "none";
+		visitor_div.style.display = "block";
+  }else if(guest.checked == true){
+		cash_receipting.style.display = "none";
+		guest_div.style.display = "block";     
+  }else if(group.checked == true){
+		cash_receipting.style.display = "none";
+		group_div.style.display = "block";   
+  }else if(family.checked == true){
+		cash_receipting.style.display = "none";
+		family_div.style.display = "block";   
+  }else if(department.checked == true){
+		cash_receipting.style.display = "none";
+		department_div.style.display = "block";   
+  }else if(institution.checked == true){
+		cash_receipting.style.display = "none";
+		institution_div.style.display = "block";   
   }
 }
 
@@ -421,10 +432,10 @@ function getBothFundAccounts(){
 	html += "<div class=\"cardHeader\">";
 	html += "<h2 style=\"text-align:center;margin-top:10px;margin-bottom:10px\">Funds Distribution</h2></div>";
 	html += "<div class=\"responseDiv\" style=\"display:none;\"></div><br><hr>";
-	html += "<table><tr><td><label class=\"label_input\"><b> To: </b></label></td>";
-	html += "<td><input type=\"text\" class=\"login_input\" id=\"churchName3\" name=\"churchName3\" placeholder=\"Cfms\" readonly></td></tr>";				
+	html += "<table>";				
 	html += "<tr><td><label class=\"label_input\"><b> For: </b></label></td>";
-	html += "<td><input type=\"text\" id=\"memberName2\" name=\"churchCode\" placeholder=\"Andrew Keitany\" readonly></td></tr>";
+	html += "<td><input type=\"text\" id=\"member_name\" name=\"member_name\" placeholder=\"\" readonly>"
+	html += "<input type=\"hidden\" id=\"member_phone\" name=\"member_phone\" placeholder=\"\"></td></tr>";
 	html += "</tr><tr>";
 	html += "<td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Trust Funds</h2></td>";
 	html += "</tr><tr><td colspan=\"2\" style=\"text-align:center\"><hr></tr>";
@@ -584,56 +595,6 @@ function getFundAccount(){
 }
 
 
-function getPaymentDiv(){
-	const onlyInputs = document.querySelectorAll('#trust_funds_div input');
-   
-    onlyInputs.forEach(input => {
-      	input.readOnly = true;
-    });
-	
-	
-	var payment_div = document.getElementById("payment_div");
-	var total = document.getElementById("FTotal").value;
-	
-	document.getElementById("payment_button").style.display = "none";
-	
-	payment_div.style.display = "block";
-	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
-	document.getElementById("payment_line").innerHTML = payment_info;
-}
-
-
-function getPaymentDiv1(){
-	const onlyInputs = document.querySelectorAll('#trust_funds_div input');
-   
-    onlyInputs.forEach(input => {
-      	input.readOnly = true;
-    });
-	
-	var payment_div = document.getElementById("payment_div");
-	var total = document.getElementById("FTotal1").value;
-	$('#non_trust_fund_form :input').attr('readonly','readonly');
-	document.getElementById("payment_button1").style.display = "none";
-	payment_div.style.display = "block";
-	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
-	document.getElementById("payment_line").innerHTML = payment_info;
-}
-
-function getPaymentDiv2(){
-	const onlyInputs = document.querySelectorAll('#trust_funds_div input');
-   
-    onlyInputs.forEach(input => {
-      	input.readOnly = true;
-    });
-	
-	var payment_div = document.getElementById("payment_div");
-	var total = document.getElementById("FTotal2").value;
-	$('#special_trust_fund_form :input').attr('readonly','readonly');
-	document.getElementById("payment_button2").style.display = "none";
-	payment_div.style.display = "block";
-	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
-	document.getElementById("payment_line").innerHTML = payment_info;
-}
 
 function getPaymentDiv3(){
 	const onlyInputs = document.querySelectorAll('#trust_funds_div input');
@@ -732,4 +693,40 @@ function getMemberProfile(){
 	html += "<td><button type=\"button\" class=\"btn\" onclick=\"displayDetails()\" style=\"width:50%;\">Submit</button></td>";
 	html += "</tr></tbody></table>";				
 	$("#member_profile").html(html);					
+}
+
+
+function checkGuestName(){
+	var guest_div = document.getElementById("home_church_others1");
+    var funds_div = document.getElementById("trust_funds_div");
+	var name = document.getElementById("guest_name").value;
+    var phone = document.getElementById("guest_phone").value;
+   
+    var statement = "The member Andrew Keitany is already registered to 29999.";
+    statement += "Would you like to contribute for them as a guest?";
+    if(confirm(statement) == true){
+		guest_div.style.display = "none";
+        funds_div.style.display = "block";
+		document.getElementById("member_name").value =  name;
+		document.getElementById("member_phone").value = phone;
+    }         
+}
+
+
+function checkVisitorName(){
+	var visitor_div = document.getElementById("home_church_others");
+    var funds_div = document.getElementById("trust_funds_div");
+    var phone = document.getElementById("visitor_phone").value;
+	var member_name = document.getElementById("member_name").value;
+	var member_phone = document.getElementById("member_phone").value;
+
+   
+    var statement = "The member Andrew Keitany is already registered to 29999.";
+    statement += "Would you like to contribute for them as a guest?";
+    if(confirm(statement) == true){
+		visitor_div.style.display = "none";
+        funds_div.style.display = "block";
+		document.getElementById("member_name").value =  "Andrew Keitany";
+		document.getElementById("member_phone").value = phone;
+    }         
 }

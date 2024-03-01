@@ -33,30 +33,46 @@
 		<span class="icon" >Home</span>
 		</a>
 		</li>
-		<li>
+		<li id="dash">
 		<a href="#">
-		<span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
-		<span class="title">Personnel Login</span>
+		<span class="icon"><ion-icon name="speedometer-outline"></ion-icon></span>
+		<span class="title">Dashboard</span>
 		</a>
 		</li>
-		<!--
 		<li>
 		<a href="#">
-		<span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-		<span class="title">Settings</span>
+		<span class="icon"><ion-icon name="newspaper-outline"></ion-icon></span>
+		<span class="title">Registration</span>
 		</a>
 		</li>
-		-->
+		<li>
+		<a href="#">
+		<span class="icon"><ion-icon name="archive-outline"></ion-icon></span>
+		<span class="title">Manage Accounts</span>
+		</a>
+		</li>
 		<li>
 		<a href="#">
 		<span class="icon"><ion-icon name="cash-outline"></ion-icon></span>
-		<span class="title">Offerings</span>
+		<span class="title">Fund Transfers</span>
 		</a>
 		</li>
 		<li>
 		<a href="#">
-		<span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-		<span class="title">Profile</span>
+		<span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+		<span class="title">Reports and Statements</span>
+		</a>
+		</li>
+		<li>
+		<a href="#">
+		<span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+		<span class="title">Receipting and Reconciliation</span>
+		</a>
+		</li>
+		<li>
+		<a href="#">
+		<span class="icon"><ion-icon name="pie-chart-outline"></ion-icon></span>
+		<span class="title">Budget and Expenditure</span>
 		</a>
 		</li>
 		<li>
@@ -82,12 +98,6 @@
 
 			<!-- Search -->
 			<div class="search">
-				<!--
-				<label>
-				<input type="text" placeholder="Search here">
-				<ion-icon name="search-outline"></ion-icon>
-				</label>
-				-->
 				<h1 style="font-size:16px;">Personnel Receipting</h1>
 			</div>
 			
@@ -171,7 +181,7 @@
 								  </td>
 							</tr>
 							<tr>
-								<td><button type="button" class="btn" onclick="getFundAccount()">Proceed</button></td>
+								<td><button type="button" class="btn" onclick="myFunction()">Proceed</button></td>
 							</tr>
 					  </tbody>
 					</table>
@@ -179,189 +189,127 @@
 				
 				
 				
-				<div id="home_church_others" style="display:none;">
-					<div class="cardHeader">
-						<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Giving Offerings</h2>
-						<div class="responseDiv" style="display:none;"></div>
-					</div>
+			<div id="home_church_others" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Visitor</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
 				<br>
 				<hr>
 				<table>
 					<tbody>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> To: </b></label></td>
-							<td><input type="text" id="churchName1" name="churchName1" placeholder="Cfms" readonly></td>
-						</tr>
-						<tr>
-							<td colspan="2"><label class="label_input" for="flexRadioDefault1"><b>Select Others</b></label></td>
-						</tr>						  
-							   <td>
-								  <input class="form-check-input" type="radio" name="flexRadioDefault5" id="other_member" onclick="otherMember()">
-								  <label class="form-check-label" for="trust_funds">
-									Other Member
-								  </label>
-							  </td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault5" id="group" onclick="otherMember()">
-								<label class="form-check-label" for="non_trust_funds">
-									Group
-								</label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault5" id="family" onclick="otherMember()">
-							  <label class="form-check-label" for="both_funds">
-								Family
-							  </label>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault5" id="department" onclick="otherMember()">
-							  <label class="form-check-label" for="special_trust_funds">
-								Department
-							  </label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault5" id="institution" onclick="otherMember()">
-							  <label class="form-check-label" for="special_trust_funds">
-								Institution
-							  </label>	
-							</td>
-						</tr>			
-						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b>Identify Member by</b></label></td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault6" id="phone_number" onclick="showIdentifier()">
-								<label class="form-check-label" for="special_trust_funds">
-									Phone Number
-								</label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault6" id="cfms_id" onclick="showIdentifier()">
-								<label class="form-check-label" for="special_trust_funds">
-									CFMS ID
-								</label>	
-							</td>
-							</tr>
-						<tr id="identify_member_only" style="margin-top:10px;">				
-							<td id="cfms_id_input" style="padding-top:10px;">
-								<label class="label_input" for="cfms_id_input"><b>Member CFMS ID(Case Specific)</b></label>
-								<input type="text" id="cfms_id" name="churchCode" placeholder="AB1234">
-							</td>
-							<td id="associated_phone_number" style="padding-top:10px;">
-								<label class="label_input" for="phone1"><b>Associated Phone Number</b></label>
-								<input type="text" id="phone1" name="churchCode" placeholder="+254" >
-							</td>
-						</tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+							<td><input type="text" id="visitor_phone" name="visitor_phone" placeholder="Phone Number"></td>
+						</tr>					
 				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
+					<td><button type="button" class="btn" onclick="checkVisitorName()">Submit</button></td>
 				</tr>
-				</table>
-				
+				</table>				
 			</div>
 			
-			<div id="host_church_others" style="display:none;">
-					<div class="cardHeader">
-						<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Giving Offerings</h2>
-						<div class="responseDiv" style="display:none;"></div>
-					</div>
+			
+			<div id="home_church_others1" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Guest</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
 				<br>
 				<hr>
 				<table>
 					<tbody>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> To: </b></label></td>
-							<td><input type="text" id="churchName2" name="churchName2" placeholder="Cfms" readonly></td>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Guest Name: </b></label></td>
+							<td><input type="text" id="guest_name" name="guest_name" placeholder="Name"></td>
 						</tr>
 						<tr>
-							<td colspan="2"><label class="label_input" for="flexRadioDefault1"><b>Select Others</b></label></td>
-						</tr>						  
-							   <td>
-								  <input class="form-check-input" type="radio" name="flexRadioDefault7" id="other_member1" onclick="otherMember()">
-								  <label class="form-check-label" for="trust_funds">
-									Other Member
-								  </label>
-							  </td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault7" id="group1" onclick="otherMember1()">
-								<label class="form-check-label" for="non_trust_funds">
-									Group
-								</label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault7" id="family1" onclick="otherMember1()">
-							  <label class="form-check-label" for="both_funds">
-								Family
-							  </label>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault7" id="department1" onclick="otherMember1()">
-							  <label class="form-check-label" for="special_trust_funds">
-								Department
-							  </label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-							  <input class="form-check-input" type="radio" name="flexRadioDefault7" id="institution1" onclick="otherMember1()">
-							  <label class="form-check-label" for="special_trust_funds">
-								Institution
-							  </label>	
-							</td>
-						</tr>			
-						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b>Identify Member by</b></label></td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault8" id="phone_number1" onclick="showIdentifier1()">
-								<label class="form-check-label" for="special_trust_funds">
-									Phone Number
-								</label>	
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input class="form-check-input" type="radio" name="flexRadioDefault8" id="cfms_id1" onclick="showIdentifier1()">
-								<label class="form-check-label" for="special_trust_funds">
-									CFMS ID
-								</label>	
-							</td>
-							</tr>
-				<tr id="identify_member_only1" style="margin-top:10px;">				
-						<td id="cfms_id_input1" style="padding-top:10px;">
-							<label class="label_input" for="cfms_id1"><b>Member CFMS ID(Case Specific)</b></label>
-							<input type="text" id="cfms_id1" name="churchCode" placeholder="AB1234">
-						</td>
-						<td id="associated_phone_number1" style="padding-top:10px;">
-							<label class="label_input" for="phone1"><b>Associated Phone Number</b></label>
-							<input type="text" id="phone1" name="churchCode" placeholder="+254" >
-						</td>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Guest Phone Number: </b></label></td>
+							<td><input type="text" id="guest_phone" name="guest_phone" placeholder="Phone Number"></td>
+						</tr>						
+				<tr>
+					<td><button type="button" class="btn" onclick="checkGuestName()">Submit</button></td>
 				</tr>
+				</table>				
+			</div>
+			
+			<div id="home_church_others2" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Group</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
+				<br>
+				<hr>
+				<table>
+					<tbody>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+							<td><input type="text" id="group_phone" name="group_phone" placeholder="Phone Number"></td>
+						</tr>					
 				<tr>
 					<td><button type="button" class="btn">Submit</button></td>
 				</tr>
-				</table>
-				
+				</table>				
 			</div>
-			<div id="trust_funds_div">
+			
+			
+			<div id="home_church_others3" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Family</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
+				<br>
+				<hr>
+				<table>
+					<tbody>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+							<td><input type="text" id="family_phone" name="family_phone" placeholder="Phone Number"></td>
+						</tr>					
+				<tr>
+					<td><button type="button" class="btn">Submit</button></td>
+				</tr>
+				</table>				
 			</div>
+			
+			<div id="home_church_others4" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Department</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
+				<br>
+				<hr>
+				<table>
+					<tbody>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+							<td><input type="text" id="department_phone" name="department_phone" placeholder="Phone Number"></td>
+						</tr>					
+				<tr>
+					<td><button type="button" class="btn">Submit</button></td>
+				</tr>
+				</table>				
+			</div>
+			
+			<div id="home_church_others5" style="display:none;">
+				<div class="cardHeader">
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Institution</h2>
+					<div class="responseDiv" style="display:none;"></div>
+				</div>
+				<br>
+				<hr>
+				<table>
+					<tbody>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+							<td><input type="text" id="institution_phone" name="institution_phone" placeholder="Phone Number"></td>
+						</tr>					
+				<tr>
+					<td><button type="button" class="btn">Submit</button></td>
+				</tr>
+				</table>				
+			</div>
+			
+			<div id="trust_funds_div" style="display:none;"></div>
 			
 			<div id="payment_div" style="display:none;">
 				

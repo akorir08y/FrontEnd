@@ -117,16 +117,16 @@ function otherMember(){
 function showIdentifier(){
 	var phone_number = document.getElementById("phone_number");
 	var cfms_identifier = document.getElementById("cfms_id");
-	var identify_only = document.getElementById("identify_member_only");
+	// var identify_only = document.getElementById("identify_member_only");
 	var cfms_id = document.getElementById("cfms_id_input");
 	var associated_phone_number = document.getElementById("associated_phone_number");
 	
 	if(phone_number.checked == true){
-		identify_only.style.display = "block";
+		// identify_only.style.display = "block";
 		associated_phone_number.style.display = "block";
 		cfms_id.style.display = "none";
 	}else if(cfms_identifier.checked == true){
-		identify_only.style.display = "block";
+		// identify_only.style.display = "block";
 		cfms_id.style.display = "block";
 		associated_phone_number.style.display = "none";
 	}
@@ -134,7 +134,6 @@ function showIdentifier(){
 
 
 function showIdentifier1(){
-	var phone_number = document.getElementById("phone_number1");
 	var cfms_identifier = document.getElementById("cfms_id1");
 	var identify_only = document.getElementById("identify_member_only1");
 	var cfms_id = document.getElementById("cfms_id_input1");
@@ -552,6 +551,7 @@ function getPaymentDiv(){
 	payment_div.style.display = "block";
 	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 	document.getElementById("payment_line").innerHTML = payment_info;
+	document.getElementById("total_value").value = total;
 }
 
 
@@ -569,6 +569,7 @@ function getPaymentDiv1(){
 	payment_div.style.display = "block";
 	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 	document.getElementById("payment_line").innerHTML = payment_info;
+	document.getElementById("total_value").value = total;
 }
 
 function getPaymentDiv2(){
@@ -585,6 +586,7 @@ function getPaymentDiv2(){
 	payment_div.style.display = "block";
 	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 	document.getElementById("payment_line").innerHTML = payment_info;
+	document.getElementById("total_value").value = total;
 }
 
 function getPaymentDiv3(){
@@ -601,4 +603,29 @@ function getPaymentDiv3(){
 	payment_div.style.display = "block";
 	var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 	document.getElementById("payment_line").innerHTML = payment_info;
+	document.getElementById("total_value").value = total;
+}
+
+
+function getPaymentNumber(){
+	var registered = document.getElementById("registered_number");
+	var my_other_number = document.getElementById("my_other_number");
+	var other_number = document.getElementById("other_number");
+	var total = document.getElementById("total_value").value;
+	var alternative_number = document.getElementById("alternative_number");
+	
+	if(registered.checked == true){
+		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
+		document.getElementById("payment_line").innerHTML = payment_info;
+		alternative_number.style.display = "none";
+	}else if(my_other_number.checked == true){
+		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254775351396";
+		document.getElementById("payment_line").innerHTML = payment_info;
+		alternative_number.style.display = "none";
+	}else if(other_number.checked == true){
+		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
+		document.getElementById("payment_line").innerHTML = payment_info;
+		alternative_number.style.display = "block";
+	}								 
+	
 }

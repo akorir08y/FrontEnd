@@ -17,6 +17,10 @@
 		padding: 2px;
 	}
 	
+	label{
+		font-size:12px;
+	}
+	
 </style>
 </head>
 <body>
@@ -345,12 +349,14 @@
 								</label>	
 							</td>
 							</tr>
-				<tr id="identify_member_only" style="margin-top:10px;">				
-						<td id="cfms_id_input" style="padding-top:10px;">
+				<tr id="cfms_id_input" style="margin-top:10px;display:none;">				
+						<td style="padding-top:10px;">
 							<label class="label_input" for="cfms_id_input"><b>Member CFMS ID(Case Specific)</b></label>
 							<input type="text" id="cfms_id" name="churchCode" placeholder="AB1234">
 						</td>
-						<td id="associated_phone_number" style="padding-top:10px;">
+				</tr>
+				<tr id="associated_phone_number">
+						<td style="padding-top:10px;">
 							<label class="label_input" for="phone1"><b>Associated Phone Number</b></label>
 							<input type="text" id="phone1" name="churchCode" placeholder="+254" >
 						</td>
@@ -373,7 +379,7 @@
 					<tbody>
 						<tr>
 							<td><label class="label_input" for="flexRadioDefault1"><b> To: </b></label></td>
-							<td><input type="text" id="churchName2" name="churchName2" placeholder="Cfms" readonly></td>
+							<td><input type="text" id="member_name_host" name="member_name_host" placeholder="Cfms" readonly></td>
 						</tr>
 						<tr>
 							<td colspan="2"><label class="label_input" for="flexRadioDefault1"><b>Select Others</b></label></td>
@@ -436,19 +442,21 @@
 								</label>	
 							</td>
 							</tr>
-				<tr id="identify_member_only1" style="margin-top:10px;">				
-						<td id="cfms_id_input1" style="padding-top:10px;">
-							<label class="label_input" for="cfms_id1"><b>Member CFMS ID(Case Specific)</b></label>
-							<input type="text" id="cfms_id1" name="churchCode" placeholder="AB1234">
-						</td>
-						<td id="associated_phone_number1" style="padding-top:10px;">
-							<label class="label_input" for="phone1"><b>Associated Phone Number</b></label>
-							<input type="text" id="phone1" name="churchCode" placeholder="+254" >
-						</td>
-				</tr>
-				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
-				</tr>
+							<tr id="cfms_id_input1" style="margin-top:10px;">				
+									<td style="padding-top:10px;">
+										<label class="label_input" for="cfms_id1"><b>Member CFMS ID(Case Specific)</b></label>
+										<input type="text" id="cfms_id1" name="churchCode" placeholder="AB1234">
+									</td>
+							</tr>
+							<tr id="associated_phone_number1">
+									<td style="padding-top:10px;">
+										<label class="label_input" for="phone1"><b>Associated Phone Number</b></label>
+										<input type="text" id="phone1" name="churchCode" placeholder="+254">
+									</td>
+							</tr>
+							<tr>
+								<td><button type="button" class="btn">Submit</button></td>
+							</tr>
 				</table>
 				
 			</div>
@@ -456,14 +464,13 @@
 			</div>
 			
 			<div id="payment_div" style="display:none;">
-				
 					<table>
 							<tr>
 								<td colspan="4" style="padding-top:10px;"><b>Initiate Payment From:</b></td>
 							</tr>
 							<tr>
 								<td colspan="2">
-									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="registered_number">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="registered_number" onclick="getPaymentNumber()">
 									  <label class="form-check-label" for="visiting_member">
 										My Registered Number
 									  </label>
@@ -471,7 +478,7 @@
 							</tr>
 							<tr>
 								  <td style="text-align:left;">
-									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="my_other_number">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="my_other_number" onclick="getPaymentNumber()">
 									  <label class="form-check-label" for="guest">
 										My Other Number
 									  </label>	
@@ -479,7 +486,7 @@
 							</tr>
 							<tr>
 								  <td>
-									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="other_number">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="other_number" onclick="getPaymentNumber()">
 									  <label class="form-check-label" for="anonymous">
 										Other Number
 									  </label>
@@ -488,8 +495,15 @@
 							<tr>
 								<td><br></td>
 							</tr>
+							<tr style="display:none;" id="alternative_number">
+								<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+								<td><input type="text" id="other_number" name="other_number" placeholder="+254"></td>
+							</tr>
 							<tr>
-								<td><br><p id="payment_line"></p></td>
+								<td><br></td>
+							</tr>
+							<tr>
+								<td><br><p id="payment_line"></p><input type="hidden" id="total_value" name="total_value"></td>
 							</tr>
 							<tr>
 								<td><button type="button" class="btn" onclick="">Confirm</button></td>
