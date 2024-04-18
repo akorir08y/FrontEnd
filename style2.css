@@ -301,7 +301,7 @@ font-size: 1.2em;
 
 .cardbox .card .cardName{
 	color: var (--black2);
-	font-size: 1.1em;
+	font-size: 12px;
 	margin-top: 5px;
 }
 
@@ -328,7 +328,17 @@ font-size: 1.2em;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-gap: 30px;
-	min-height: 200px;
+	min-height: 400px;
+}
+
+.graphBox1{
+	position: relative;
+	width: 100%;
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 30px;
+	min-height: 400px;
 }
 
 .graphBox .box{
@@ -339,6 +349,16 @@ font-size: 1.2em;
 	box-shadow: 0 7px 25px rgba(0,0,0,0.08);
 	border-radius: 20px;
 }
+
+.graphBox1 .box1{
+	position: relative;
+	background: #fff;
+	padding: 20px;
+	width: 100%;
+	box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+	border-radius: 20px;
+}
+
 
 
 .details{
@@ -516,15 +536,15 @@ font-size: 1.2em;
 	object-fit: cover;
 }
 
-/*
-.recentCustomers table tr:hover{
-	background: var(--blue);
-	color: var(--white);
+
+.recentCustomers table tr{
+	border-radius: 6px;
 }
-*/
+
 
 .recentCustomers table tr td{
 	padding:10px;
+	border-radius: 6px;
 }
 
 .recentCustomers table tr td h4{

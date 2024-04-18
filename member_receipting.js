@@ -431,11 +431,15 @@ function getBothFundAccounts(){
 	html += "<div class=\"responseDiv\" style=\"display:none;\"></div><br><hr>";
 	html += "<table>";				
 	html += "<tr><td><label class=\"label_input\"><b> For: </b></label></td>";
-	html += "<td><input type=\"text\" id=\"member_name\" name=\"member_name\" placeholder=\"\" readonly>"
+	html += "<td><input type=\"text\" id=\"member_name\" name=\"member_name\" placeholder=\"\" readonly>";
 	html += "<input type=\"hidden\" id=\"member_phone\" name=\"member_phone\" placeholder=\"\"></td></tr>";
-	html += "</tr><tr>";
-	html += "<td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Trust Funds</h2></td>";
-	html += "</tr><tr><td colspan=\"2\" style=\"text-align:center\"><hr></tr>";
+	html += "<tr><td><label class=\"label_input\"><b> Total: </b></label></td>";
+	html += "<td><input type=\"text\" id=\"receipting_total\" name=\"receipting_total\" placeholder=\"\">";
+	html += "</td></tr>";
+	html += "<tr></table>";
+	html += "<table><tr><td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Trust Funds</h2><span class=\"right-icon\" onclick=\"trustFundView()\" id=\"add_icon\" style=\"display:none;\"><ion-icon name=\"add-circle-outline\"></ion-icon></span><span class=\"right-icon\" onclick=\"trustFundView()\" id=\"remove_icon\"><ion-icon name=\"remove-circle-outline\"></ion-icon></span</td></tr></table>";
+	html += "<div id=\"trust_funds_view\" style=\"display:block;\"><table>";
+	html += "<tr><td colspan=\"2\" style=\"text-align:center\"><hr></tr>";
 	html += "<tr><td style=\"border-bottom:2px solid black;padding-top:7px;\"><b>Contribution Type</b></td>";
 	html += "<td style=\"border-bottom:2px solid black;text-align:right;padding-top:7px;\"><b>Amount Offered</b></td></tr>";
 	
@@ -454,14 +458,16 @@ function getBothFundAccounts(){
 		html += "<tr>";
 		html += "<td style=\"font-size:12px;padding-top:10px;\"><b>"+ uniqueChars[i] +"</b><input type=\"hidden\" class=\"trust_funds1\" value='"+uniqueChars[i]+"'></td>";
 		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
-		html += "<input type=\"number\" id='"+uniqueChars[i]+"' class=\"amt\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal3()\" onkeydown=\"GetTotal3()\"  onkeyup=\"GetTotal3()\">";
+		html += "<input type=\"number\" id='"+uniqueChars[i]+"' class=\"amt\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal4()\" onkeydown=\"GetTotal4()\"  onkeyup=\"GetTotal4()\">";
 		html += "</td></tr>";
 	}
-	html += "<tbody></table>";	
+	html += "<tbody></table>";
+	html += "</div>"
 	
 	html += "<table><tr>";
-	html += "<td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Non Trust Funds</h2></td>";
-	html += "</tr><tr><td colspan=\"2\" style=\"text-align:center\"><hr></tr>";
+	html += "<td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Non Trust Funds</h2><span class=\"right-icon\" onclick=\"nonTrustFundView()\" id=\"add_icon1\" style=\"display:none;\"><ion-icon name=\"add-circle-outline\"></ion-icon></span><span class=\"right-icon\" onclick=\"nonTrustFundView()\" id=\"remove_icon1\"><ion-icon name=\"remove-circle-outline\"></ion-icon></span</td></tr></table>";
+	html += "<div id=\"non_trust_funds_view\"  style=\"display:block;\">";
+	html += "<table><tr><td colspan=\"2\" style=\"text-align:center\"><hr></tr>";
 	html += "<tr><td style=\"border-bottom:2px solid black;padding-top:7px;\"><b>Contribution Type</b></td>";
 	html += "<td style=\"border-bottom:2px solid black;text-align:right;padding-top:7px;\"><b>Amount Offered</b></td></tr>";
 	
@@ -478,12 +484,12 @@ function getBothFundAccounts(){
 		html += "<tr>";
 		html += "<td style=\"font-size:12px;padding-top:10px;\"><b>"+ uniqueChars1[i] +"</b><input type=\"hidden\" class=\"non_trust_funds1\" value='"+uniqueChars1[i]+"'></td>";
 		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
-		html += "<input type=\"number\" id='"+uniqueChars1[i]+"' class=\"amt\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal3()\" onkeydown=\"GetTotal3()\"  onkeyup=\"GetTotal3()\">";
+		html += "<input type=\"number\" id='"+uniqueChars1[i]+"' class=\"amt1\" name=\"amt1\" placeholder=\"\" onfocus=\"GetTotal4()\" onkeydown=\"GetTotal4()\"  onkeyup=\"GetTotal4()\">";
 		html += "</td></tr>";
 	}
 	
 	html += "</form><tbody></table>";
-	
+	html += "</div>"
 	
 	html += "<table><tr>";
 	html += "<td colspan=\"2\"><h2 style=\"text-align: center;font-size:14px;padding-top:10px;padding-bottom:10px;\">Special Trust Funds</h2></td>";
@@ -504,13 +510,13 @@ function getBothFundAccounts(){
 		html += "<tr>";
 		html += "<td style=\"font-size:12px;padding-top:10px;\"><b>"+ uniqueChars2[i] +"</b><input type=\"hidden\" class=\"special_trust_funds1\" value='"+uniqueChars2[i]+"'></td>";
 		html += "<td style=\"padding-left:15px;padding-top:10px;\">";
-		html += "<input type=\"number\" id='"+uniqueChars2[i]+"' class=\"amt\" name=\"amt\" placeholder=\"\" onfocus=\"GetTotal3()\" onkeydown=\"GetTotal3()\"  onkeyup=\"GetTotal3()\">";
+		html += "<input type=\"number\" id='"+uniqueChars2[i]+"' class=\"amt2\" name=\"amt2\" placeholder=\"\" onfocus=\"GetTotal4()\" onkeydown=\"GetTotal4()\"  onkeyup=\"GetTotal4()\">";
 		html += "</td></tr>";
 	}
 	
 	html += "<tr><td style=\"font-size:12px;\"><b>Total</b></td>";
 	html += "<td style=\"padding-left:15px;padding-top:10px;\"><input type=\"number\" class=\"login_input\" id=\"FTotal3\" name=\"churchCode\" placeholder=\"\" readonly></td></tr>";
-	html += "<tr><td><button type=\"button\" class=\"btn\" onclick=\"getPaymentDiv3()\" id=\"payment_button3\">Confirm</button></td></tr>";
+	html += "<tr><td><button type=\"button\" class=\"btn\" onclick=\"checkTotals()\" id=\"payment_button3\">Confirm</button></td></tr>";
 	html += "</form><tbody></table>";
 	
 	$("#trust_funds_div").html(html);
@@ -726,4 +732,85 @@ function checkVisitorName(){
 		document.getElementById("member_name").value =  "Andrew Keitany";
 		document.getElementById("member_phone").value = phone;
     }         
+}
+
+
+function GetTotal4()
+{
+    /*Footer Calculation*/
+    var sum= 0;
+    var sum1 = 0;
+	var sum2 = 0;
+    var amts =  document.getElementsByName("amt");
+    var amts1 =  document.getElementsByName("amt1");
+	var amts2 =  document.getElementsByName("amt2");
+
+
+    for (let index = 0; index < amts.length; index++){
+        var amt = amts[index].value;
+        sum = +(sum) +  +(amt) ;
+    }
+
+    for (let index = 0; index < amts1.length; index++){
+        var amt1 = amts1[index].value;
+        sum1 = +(sum1) +  +(amt1) ;
+    }
+	
+	for (let index = 0; index < amts2.length; index++){
+        var amt2 = amts2[index].value;
+        sum2 = +(sum2) +  +(amt2) ;
+    }
+	
+	var receipting_total = document.getElementById("receipting_total").value;
+    var sum3 = sum + sum1 + sum2;
+    document.getElementById("FTotal3").value = sum3;
+	 
+}
+
+
+function checkTotals(){
+	var receipting_total = document.getElementById("receipting_total").value;
+	var sum3 = document.getElementById("FTotal3").value;
+	if(receipting_total != sum3){
+		alert('The total does not match the funds distribution total');
+		return false;
+	}else{
+		alert('The totals match');
+		return true
+	}	
+}
+
+
+function trustFundView(){
+	var trust_fund_view = document.getElementById("trust_funds_view");
+	var add_icon = document.getElementById("add_icon");
+	var remove_icon = document.getElementById("remove_icon");
+	
+	if(trust_fund_view.style.display === "block"){
+		trust_fund_view.style.display = "none";
+		remove_icon.style.display = "none"
+		add_icon.style.display = "block";
+	}else{
+		trust_fund_view.style.display = "block"
+		add_icon.style.display = "none";
+		remove_icon.style.display = "block";
+	}
+}
+
+
+
+function nonTrustFundView(){
+	var non_trust_fund_view = document.getElementById("non_trust_funds_view");
+	var add_icon = document.getElementById("add_icon1");
+	var remove_icon = document.getElementById("remove_icon1");
+	
+	if(non_trust_fund_view.style.display === "block"){
+		non_trust_fund_view.style.display = "none";
+		remove_icon.style.display = "none"
+		add_icon.style.display = "block";
+	}else{
+		non_trust_fund_view.style.display = "block"
+		add_icon.style.display = "none";
+		remove_icon.style.display = "block";
+	}
 }

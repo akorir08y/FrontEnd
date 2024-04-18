@@ -11,7 +11,7 @@
 		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>        
         
         <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
@@ -133,9 +133,9 @@
             </section>
 
             <!--==================== POPULAR ====================-->
-            <section class="section" id="popular">
+            <section class="popular section" id="popular">
                 <div class="container">
-					<span class="section__subtitle"></span>
+					<span class="section__subtitle">Best Choice</span>
 					<h2 class="section__title">
 						Popular Residences<span>.</span>
 					</h2>
@@ -143,8 +143,7 @@
 					<div class="popular__container swiper">
 						<div class="swipper-wrapper">
 							<article class="popular__card swiper-slide">
-								<img src="assets/img/popular1.jpg" alt="" class="popular__img">
-								
+								<img src="assets/img/popular1.jpg" alt="" class="popular__img">								
 								<div class="popular__data">
 									<h2 class="popular__price">
 										<span>$</span> 66,356
@@ -157,7 +156,7 @@
 									</p>
 								</div>
 							</article>
-							<article class="popular__card swiper-slide">
+							<article class="popular__card swiper-slide ">
 								<img src="assets/img/popular2.jpg" alt="" class="popular__img">
 								
 								<div class="popular__data">
@@ -172,7 +171,7 @@
 									</p>
 								</div>
 							</article>
-							<article class="popular__card swiper-slide">
+							<article class="popular__card swiper-slide ">
 								<img src="assets/img/popular3.jpg" alt="" class="popular__img">
 								
 								<div class="popular__data">
@@ -187,7 +186,7 @@
 									</p>
 								</div>
 							</article>
-							<article class="popular__card swiper-slide">
+							<article class="popular__card swiper-slide ">
 								<img src="assets/img/popular4.jpg" alt="" class="popular__img">
 								
 								<div class="popular__data">
@@ -202,7 +201,7 @@
 									</p>
 								</div>
 							</article>
-							<article class="popular__card swiper-slide">
+							<article class="popular__card swiper-slide ">
 								<img src="assets/img/popular5.jpg" alt="" class="popular__img">
 								
 								<div class="popular__data">
@@ -217,9 +216,10 @@
 									</p>
 								</div>
 							</article>
+							
+							<div class="swiper-button-prev"><i class="bx bx-chevron-left"></i></div>
+							<div class="swiper-button-next"><i class="bx bx-chevron-right"></i></div>
 						</div>
-						<div class="swiper-button-prev"><i class="bx bx-chevron-left"></i></div>
-						<div class="swiper-button-next"><i class="bx bx-chevron-right"></i></div>
 					</div>
 				</div>
             </section>
@@ -326,7 +326,8 @@
         <footer class="footer section">
             
         </footer>
-
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <!--========== SCROLL UP ==========-->
 		 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
@@ -335,7 +336,7 @@
         <script src="assets/js/scrollreveal.min.js"></script>
 
         <!--=============== SWIPER JS ===============-->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>

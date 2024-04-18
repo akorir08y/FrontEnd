@@ -1,0 +1,43 @@
+<style>
+  table.tb { width:300px; border-collapse: collapse; }
+  .tb th, .tb td { border: solid 1px #777; padding: 5px; }
+  .tb thead { background-color:lightblue; }
+  .tb tbody { font-style: italic; }
+</style>
+
+<table class="tb">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Denice</td>
+      <td>Hobermann</td>
+    </tr>
+    <tr id="mytr">
+      <td>Paulo</td>
+      <td>Cornell</td>
+    </tr>
+  </tbody>
+</table>
+
+<br /><br />
+<button onclick="toggle(this)">Show tr</button>
+
+<script>
+  let toggle = button => {
+    let element = document.getElementById("mytr");
+
+    if (hidden) {
+       element.removeAttribute("hidden");
+       button.innerText = "Hide tr";
+    } else {
+       element.setAttribute("hidden", "hidden");
+       button.innerText = "Show tr";
+    }
+  }
+</script>

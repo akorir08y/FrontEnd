@@ -17,6 +17,10 @@
 		padding: 2px;
 	}
 	
+	add_button table{ 
+		border-collapse: separate; 
+		border-spacing: 0;
+	}
 	
 	label{
 		font-size:12px;
@@ -146,7 +150,19 @@
 			
 			</div>
 			<div class="recentCustomers">
-				
+				<div id="add_button">
+					<div class="cardHeader">
+						<h2 style="text-align:center;margin-top:10px;">Add New Member</h2>
+					</div>
+					<table width="100%" style="border-collapse: separate;">
+						<tbody>
+						<tr onclick="getNewMember()">
+							<td class="linkers" style="text-align:center;padding: 10px 20px;background: var(--white);text-decoration: none;	color: var(--blue);	border-radius: 6px;	font-size:12px;	border: 2px solid var(--blue);border-spacing: 2px;">Add Member</a></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<br>
 				<hr>
 				<div id="about_app">
 					<div class="cardHeader">
@@ -160,7 +176,7 @@
 							</tr>
 							<tr>
 								<td><ion-icon name="bookmarks-outline" class="icons"></ion-icon></ion-icon></td>
-								<td colspan="2"><a href="" class="linkers">Frequently Asked Questions</a></td>
+								<td colspan="3"><a href="" class="linkers">Frequently Asked Questions</a></td>
 							</tr>
 							<tr>
 								<td><ion-icon name="cloud-done-outline" class="icons"></ion-icon></td>

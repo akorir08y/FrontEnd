@@ -9,20 +9,16 @@ window.addEventListener('scroll', scrollHeader)
 
 
 /*=============== SWIPER POPULAR ===============*/
-const swiper = new Swiper('.popular__container', {
-  // Optional parameters
-  // direction: 'horizontal',
-  loop: true,
-  centeredSlides: true,
-  spaceBetween: 32,
-  grabCursor: true,
-  slidesPerView: 'auto'
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+const swiperPopular = new Swiper('.swiper', {
+	loop: true,
+	centeredSlides: true,
+	spaceBetween: 32,
+	grabCursor: true,
+	slidesPerView: 'auto',
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
 
 });
 

@@ -5,6 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>Login Dashboard</title>
 <link rel="stylesheet " type="text/css" href="style2.css">
+<link rel="stylesheet" type="text/css" href="modelled.css">
 <link rel="stylesheet" type="text/css" href="table.css">
 <script>
 $(document).ready(function(){
@@ -17,6 +18,11 @@ $(document).ready(function(){
 });
 </script>
 <style>
+.details table td, #host_church_self table td,#home_church_self table td, #host_church_others table td,
+	#trust_funds_div table td, #payment_div table td{
+		padding: 2px;
+}
+	
 .loader {
   border: 6px solid #24478f;
   border-radius: 50%;
@@ -55,7 +61,7 @@ $(document).ready(function(){
 		</a>
 		</li>
 		<li>
-		<a href="#">
+		<a href="#" id="myBtn">
 		<span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
 		<span class="title">Personnel Login</span>
 		</a>
@@ -299,19 +305,20 @@ $(document).ready(function(){
 					</table>
 				</div>
 			</div>
-		</div>
+			
 		
 		
 			
 
-	</div>
 	
+	</div>
 	
 </div>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="modelled.js"></script>
 <script src="myChart.js"></script>
 
 <script type="text/javascript">

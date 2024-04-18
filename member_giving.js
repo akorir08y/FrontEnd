@@ -617,15 +617,66 @@ function getPaymentNumber(){
 	if(registered.checked == true){
 		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 		document.getElementById("payment_line").innerHTML = payment_info;
-		alternative_number.style.display = "none";
+		alternative_number.style.visibility = "collapse";				
 	}else if(my_other_number.checked == true){
 		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254775351396";
 		document.getElementById("payment_line").innerHTML = payment_info;
-		alternative_number.style.display = "none";
+		alternative_number.style.visibility = "collapse";		
 	}else if(other_number.checked == true){
 		var payment_info = "Ensure "+ total +"/= has been deposited on the mobile money account for 254707981971";
 		document.getElementById("payment_line").innerHTML = payment_info;
-		alternative_number.style.display = "block";
+		alternative_number.style.visibility = "visible";		
 	}								 
 	
 }
+
+
+function getPhoneNumbers(){
+	var registered_number = document.getElementById("registered_number");
+	var my_other_number = document.getElementById("my_other_number");
+	var other_number = document.getElementById("other_number");
+	var other_number = document.getElementById("other_number");
+	
+	if(registered_number.checked == true){
+		
+	}
+
+}
+
+
+/*
+	<div class="cardHeader">
+						<h2 style="text-align:center;">Update Local Church Account</h2>
+						<div class="responseDiv" style="display:none;"></div>
+					</div>
+					<br>
+					<hr>					
+					<table>
+					  <tbody>
+							<tr>
+								<td style="padding-top:10px;"><b>Account Name</b></td>
+								<td style="padding-top:10px;"><input type="text" id="account_name" name="account_name"></td>
+							</tr>
+							<tr>
+								<td style="padding-top:10px;"><b>Department</b></td>
+								<td style="padding-top:10px;"><input type="text" id="department_name" name="department_name"></td>
+							</tr>
+							<tr>
+								<td style="padding-top:10px;"><b>Priority</b></td>
+								<td style="padding-top:10px;"><input type="text" id="priority_number" name="priority_number"></td>
+							</tr>
+							<tr>
+								<td style="padding-top:10px;"><b>Duration</b></td>
+								<td style="padding-top:10px;"><input type="text" id="duration" name="duration"></td>
+							</tr>
+							<tr>
+								<td style="padding-top:10px;"><b>Status</b></td>
+								<td style="padding-top:10px;"><input type="text" id="status" name="status"></td>
+							</tr>
+							<tr>
+								<td><button type="button" class="btn" onclick="myFunction()">Save Account</button></td>
+							</tr>
+					  </tbody>
+					</table>
+
+*/

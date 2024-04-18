@@ -3,16 +3,16 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<title>Login Dashboard</title>
+<title>Fund Transfer</title>
 <link rel="stylesheet " type="text/css" href="style2.css">
 <link rel="stylesheet" type="text/css" href="table.css">
 <style>
-	#cash_receipting table tr,#host_church_self table tr,#home_church_self table tr, #host_church_others table tr,
+	#fund_transfer table tr,#host_church_self table tr,#home_church_self table tr, #host_church_others table tr,
 	#trust_funds_div table tr, #payment_div table tr{
 		padding: 0px;
 	}
 	
-	#cash_receipting table td, #host_church_self table td,#home_church_self table td, #host_church_others table td,
+	#fund_transfer table td, #host_church_self table td,#home_church_self table td, #host_church_others table td,
 	#trust_funds_div table td, #payment_div table td{
 		padding: 2px;
 	}
@@ -98,7 +98,7 @@
 
 			<!-- Search -->
 			<div class="search">
-				<h1 style="font-size:16px;">Personnel Receipting</h1>
+				<h1 style="font-size:16px;">Fund Transfer</h1>
 			</div>
 			
 			<!-- userImg -->
@@ -111,65 +111,53 @@
 		<!-- Order Details List -->
 		<div class="details">
 			<div class="recentOrders">
-				<div id="transaction_tracing">
+				<div id="fund_transfer">
 					<div class="cardHeader">
-						<h2 style="text-align:center;">Transaction Tracing</h2>
+						<h2 style="text-align:center;">Fund Transfer</h2>
 						<div class="responseDiv" style="display:none;"></div>
 					</div>
+					
 					<br>
 					<hr>					
-				
 					<table>
 					  <tbody>
 							<tr>
-								<td><label class="form-check-label" for="church_member">
-										From
-							    </label></td>
-								<td><label class="form-check-label" for="church_member">
-										To
-							    </label></td>
-							</tr>
-							<tr>
-								<td><input class="form-check-input" type="date" name="flexRadioDefault3" id="from_date"></td>
-								<td><input class="form-check-input" type="date" name="flexRadioDefault3" id="to_date"></td>
-							</tr>
-							<tr>
-								<td style="padding-top:10px;"><b>Trace Transaction By</b></td>
+								<td colspan="4" style="padding-top:10px;"><b>Select a Transaction to proceed</b></td>
 							</tr>
 							<tr>
 								<td>
-									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="church_member">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="transfer_to_conference">
 									  <label class="form-check-label" for="church_member">
-										Phone Number
+										Trust Funds To Conference
 									  </label>
 								  </td>
 							</tr>
 							<tr>
 								  <td colspan="2">
-									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="visiting_member">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="department_to_bank">
 									  <label class="form-check-label" for="visiting_member">
-										Receipt Number
+										Departmental Funds to Bank
 									  </label>	
 								  </td>
 							</tr>
 							<tr>
-								<td style="padding-top:10px;"><b>Associated Phone Number</b></td>
-							</tr>
-							<tr>
 								  <td>
-									  <input class="form-check-input" type="text" name="flexRadioDefault3" id="phone_number">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="department_to_another">
+									  <label class="form-check-label" for="guest">
+										Department to Another
+									  </label>
 								  </td>
 							</tr>
 							<tr>
-								<td style="padding-top:10px;"><b>Associated Receipt Number</b></td>
+								  <td colspan="2">
+									  <input class="form-check-input" type="radio" name="flexRadioDefault3" id="withdrawal_from_bank">
+									  <label class="form-check-label" for="group">
+										Withdrawal from Bank
+									  </label>	
+								  </td>
 							</tr>
 							<tr>
-								  <td>
-									  <input class="form-check-input" type="text" name="flexRadioDefault3" id="receipt_number">
-								  </td>
-							</tr>							
-							<tr>
-								<td><button type="button" class="btn" onclick="myFunction()">Submit</button></td>
+								<td><button type="button" class="btn" onclick="myFunction()">Proceed</button></td>
 							</tr>
 					  </tbody>
 					</table>
@@ -179,7 +167,7 @@
 				
 			<div id="home_church_others" style="display:none;">
 				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Visitor</h2>
+					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Transfer to Conference</h2>
 					<div class="responseDiv" style="display:none;"></div>
 				</div>
 				<br>
@@ -187,119 +175,71 @@
 				<table>
 					<tbody>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-							<td><input type="text" id="visitor_phone" name="visitor_phone" placeholder="Phone Number"></td>
-						</tr>					
+							<td><label class="label_input" for="flexRadioDefault1"><b> Source Account</b></label></td>
+							<td><select class="login_input" aria-label="Default Select Example" id="mobileprovider">
+							  <option value="Cash"></option>
+						  </select></td>
+							<!--<td><select class="login_input" aria-label="Default Select Example" id="mobileprovider">
+							  <option th:each="telcos : ${Telco}"
+									  th:value="${telcos}"
+									  th:text="${telcos}"></option>
+						  </select></td>-->
+						</tr>	
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b>Cash Account</b></label></td>
+							<td><select class="login_input" aria-label="Default Select Example" id="mobileprovider">
+							  <option value="Cash Account:104001(13274)">Cash Account:104001(13274)</option>
+						  </select></td>
+							<!--<td><select class="login_input" aria-label="Default Select Example" id="mobileprovider">
+							  <option th:each="telcos : ${Telco}"
+									  th:value="${telcos}"
+									  th:text="${telcos}"></option>
+						  </select></td>-->
+						</tr>						
 				<tr>
-					<td><button type="button" class="btn" onclick="checkVisitorName()">Submit</button></td>
+					<td><button type="button" class="btn">Get Fund Data</button></td>
 				</tr>
 				</table>				
 			</div>
 			
 			
 			<div id="home_church_others1" style="display:none;">
-				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Guest</h2>
-					<div class="responseDiv" style="display:none;"></div>
-				</div>
 				<br>
 				<hr>
-				<table>
+				<table width="100%">
 					<tbody>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Guest Name: </b></label></td>
-							<td><input type="text" id="guest_name" name="guest_name" placeholder="Name"></td>
+							<td style="border-bottom: 2px solid black;"><label class="label_input" for="flexRadioDefault1"><b> Account (Balance) </b></label></td>
+							<td style="border-bottom: 2px solid black;"><label class="label_input" for="flexRadioDefault1"><b> Amount </b></label></td>
 						</tr>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Guest Phone Number: </b></label></td>
-							<td><input type="text" id="guest_phone" name="guest_phone" placeholder="Phone Number"></td>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Opening Balance Tithe </b></label></td>
+							<td><label class="label_input" for="flexRadioDefault1"><b> KES 0 </b></label></td>
+						</tr>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Tithe(7560) </b></label></td>
+							<td><input type="text" id="tithe" name="tithe" placeholder="Phone Number" value="7560" readonly></td>
+						</tr>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Opening Balance Camp Meeting </b></label></td>
+							<td><label class="label_input" for="flexRadioDefault1"><b> KES 0 </b></label></td>
+						</tr>
+						<tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Camp Meeting(1300) </b></label></td>
+							<td><input type="text" id="camp_meeting" name="camp_meeting" placeholder="Phone Number" value="1300"></td>
 						</tr>						
-				<tr>
-					<td><button type="button" class="btn" onclick="checkGuestName()">Submit</button></td>
-				</tr>
-				</table>				
-			</div>
-			
-			<div id="home_church_others2" style="display:none;">
-				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Group</h2>
-					<div class="responseDiv" style="display:none;"></div>
-				</div>
-				<br>
-				<hr>
-				<table>
-					<tbody>
 						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-							<td><input type="text" id="group_phone" name="group_phone" placeholder="Phone Number"></td>
-						</tr>					
-				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
-				</tr>
+							<td><label class="label_input" for="flexRadioDefault1"><b> Total Amount </b></label></td>
+							<td><input type="text" id="guest_phone" name="guest_phone" placeholder="Phone Number" value="8560" readonly></td>
+						</tr>
 				</table>				
 			</div>
 			
 			
-			<div id="home_church_others3" style="display:none;">
-				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Family</h2>
-					<div class="responseDiv" style="display:none;"></div>
-				</div>
-				<br>
-				<hr>
-				<table>
-					<tbody>
-						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-							<td><input type="text" id="family_phone" name="family_phone" placeholder="Phone Number"></td>
-						</tr>					
-				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
-				</tr>
-				</table>				
-			</div>
-			
-			<div id="home_church_others4" style="display:none;">
-				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Department</h2>
-					<div class="responseDiv" style="display:none;"></div>
-				</div>
-				<br>
-				<hr>
-				<table>
-					<tbody>
-						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-							<td><input type="text" id="department_phone" name="department_phone" placeholder="Phone Number"></td>
-						</tr>					
-				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
-				</tr>
-				</table>				
-			</div>
-			
-			<div id="home_church_others5" style="display:none;">
-				<div class="cardHeader">
-					<h2 style="text-align:center;margin-top:10px;margin-bottom:10px">Cash Receipting for Institution</h2>
-					<div class="responseDiv" style="display:none;"></div>
-				</div>
-				<br>
-				<hr>
-				<table>
-					<tbody>
-						<tr>
-							<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-							<td><input type="text" id="institution_phone" name="institution_phone" placeholder="Phone Number"></td>
-						</tr>					
-				<tr>
-					<td><button type="button" class="btn">Submit</button></td>
-				</tr>
-				</table>				
-			</div>
 			
 			<div id="trust_funds_div"></div>
 			
-			<div id="payment_div" style="display:none;">
+			<div id="payment_div">
 				
 					<table>
 							<tr>
@@ -309,7 +249,7 @@
 								<td colspan="2">
 									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="registered_number">
 									  <label class="form-check-label" for="visiting_member">
-										My Registered Number
+										My Number
 									  </label>
 								</td>
 							</tr>
@@ -322,10 +262,13 @@
 								  </td>
 							</tr>
 							<tr>
+								<td colspan="4" style="padding-top:10px;"><b>Other Methods:</b></td>
+							</tr>
+							<tr>
 								  <td>
 									  <input class="form-check-input" type="radio" name="flexRadioDefault4" id="other_number">
 									  <label class="form-check-label" for="anonymous">
-										Other Number
+										Equity Over the Counter Deposit
 									  </label>
 								  </td>
 							</tr>
@@ -333,10 +276,10 @@
 								<td><br></td>
 							</tr>
 							<tr>
-								<td><br><p id="payment_line"></p></td>
+								<td><br><p id="payment_line">Ensure 8560 /= has been deposited on the mobile money account for 254786439659</p></td>
 							</tr>
 							<tr>
-								<td><button type="button" class="btn" onclick="">Confirm</button></td>
+								<td><button type="button" class="btn" onclick="">Initiate Transfer</button></td>
 							</tr>							
 					</table>
 				

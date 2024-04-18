@@ -463,7 +463,7 @@
 			<div id="trust_funds_div">
 			</div>
 			
-			<div id="payment_div" style="display:none;">
+			<div id="payment_div">
 					<table>
 							<tr>
 								<td colspan="4" style="padding-top:10px;"><b>Initiate Payment From:</b></td>
@@ -492,12 +492,9 @@
 									  </label>
 								  </td>
 							</tr>
-							<tr>
-								<td><br></td>
-							</tr>
-							<tr style="display:none;" id="alternative_number">
-								<td><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
-								<td><input type="text" id="other_number" name="other_number" placeholder="+254"></td>
+							<tr id="alternative_number" style="visibility: collapse;">
+								<td colspan="2"><label class="label_input" for="flexRadioDefault1"><b> Phone Number: </b></label></td>
+								<td colspan="2"><input type="text" id="other_number2" name="other_number2" placeholder="+254"></td>
 							</tr>
 							<tr>
 								<td><br></td>
@@ -509,11 +506,17 @@
 								<td><button type="button" class="btn" onclick="">Confirm</button></td>
 							</tr>							
 					</table>
+					
 				
 			</div>
 			
 				
-				
+				<!--
+				<tr style="display: block; width: 100%;" id="alternative_number">
+					<td colspan="2"><label class="label_input"><b> Phone Number: </b></label></td>
+					<td colspan="2"><input type="text" id="other_number2" name="other_number2" placeholder="+254"></td>
+				</tr>
+				-->
 			</div>
 			<div class="recentCustomers">
 				<div class="cardHeader">

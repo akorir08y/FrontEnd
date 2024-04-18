@@ -145,21 +145,12 @@ $(document).ready(function(){
 		</div>
 		
 		
-		<h2 style="text-align:center;">Trust Fund Summary</h2>
+		<h2 style="text-align:center;">Local Church Offering Report</h2>
 		
 		<div class="cardBox">			
 			<div class="card">
 				<div>
-					<div class="numbers">1,504</div>
-					<div class="cardName">Church Members</div>
-				</div>
-				<div class="iconBx">
-					<ion-icon name="eye-outline"></ion-icon>
-				</div>
-			</div>
-			<div class="card">
-				<div>
-					<div class="numbers">8000</div>
+					<div class="numbers" id="transactions"></div>
 					<div class="cardName">Transactions</div>
 				</div>
 				<div class="iconBx">
@@ -168,8 +159,8 @@ $(document).ready(function(){
 			</div>
 			<div class="card">
 				<div>
-					<div class="numbers">284</div>
-					<div class="cardName">Comments</div>
+					<div class="numbers" id="total_amount"></div>
+					<div class="cardName">Local Church Offering Total Amount</div>
 				</div>
 				<div class="iconBx">
 					<ion-icon name="chatbubbles-outline"></ion-icon>
@@ -177,11 +168,20 @@ $(document).ready(function(){
 			</div>
 			<div class="card">
 				<div>
-					<div class="numbers">$7,842</div>
-					<div class="cardName">Amount Contributed</div>
+					<div class="numbers" id="cash_account"></div>
+					<div class="cardName">Amount Contributed in Cash</div>
 				</div>
 				<div class="iconBx">
 					<ion-icon name="wallet-outline"></ion-icon>
+				</div>
+			</div>
+			<div class="card">
+				<div>
+					<div class="numbers" id="ussd_account"></div>
+					<div class="cardName">Amount Contributed in USSD</div>
+				</div>
+				<div class="iconBx">
+					<ion-icon name="eye-outline"></ion-icon>
 				</div>
 			</div>
 		</div>
@@ -189,7 +189,12 @@ $(document).ready(function(){
 		<!-- Add Charts -->
 		<div class="graphBox">
 			<div class="box"><canvas id="myChart"></canvas></div>
-			<div class="box"><canvas id="myChart1"></canvas></div>
+			<div class="box"><canvas id="myChart2"></canvas></div>
+		</div>
+		
+		
+		<div class="graphBox1">
+			<div style="box1"><canvas id="myChart1"></canvas></div>			
 		</div>
 		
 		<!-- Order Details List -->
@@ -336,7 +341,7 @@ $(document).ready(function(){
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="myChart.js"></script>
+<script src="myChart1.js"></script>
 
 <script type="text/javascript">
 let toggle = document.querySelector('.toggle');
